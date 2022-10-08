@@ -42,6 +42,10 @@ namespace KID
             // 9，一般，閃電
             ShootMarble(9, "閃電");            // 錯誤執行結果：9，閃電，光點
             ShootMarble(9, effect: "閃電");
+
+            // 在方法或事件內這個稱為區域變數 - 欄位有限制性，僅在此結構內能使用
+            int ten = ReturnTen();
+            print("傳回的數字：" + ten);
         }
 
         // 參數語法：
@@ -69,5 +73,32 @@ namespace KID
 
         }
         */
+
+        private int ReturnTen()
+        {
+            return 10;
+        }
+
+        private void Start()
+        {
+            float bmiKID = BMI(1.65f, 60);
+            print("KID BMI：" + bmiKID);
+
+            print("50 BMI：" + BMI(1.75f, 75));
+        }
+
+        // 計算 BMI
+        // 提供身高(公尺)、體重並算出 BMI 值：體重 / 身高平方
+        /// <summary>
+        /// 計算 BMI 方法
+        /// </summary>
+        /// <param name="height">請輸入身高，公尺</param>
+        /// <param name="weight">請輸入體重</param>
+        /// <returns>BMI 結果</returns>
+        private float BMI(float height, float weight)
+        {
+            float result = weight / (height * height);
+            return result;
+        }
     }
 }
