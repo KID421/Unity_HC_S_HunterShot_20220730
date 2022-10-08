@@ -1,80 +1,94 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß¹Bºâ¤l¡G
-    /// 1. ¼Æ¾Ç
-    /// 2. ¤ñ¸û
-    /// 3. ÅŞ¿è
-    /// 4. ¤T¤¸
+    /// å­¸ç¿’é‹ç®—å­ï¼š
+    /// 1. æ•¸å­¸
+    /// 2. æ¯”è¼ƒ
+    /// 3. é‚è¼¯
+    /// 4. ä¸‰å…ƒ
     /// </summary>
     public class LearnOperator : MonoBehaviour
     {
+        private float a = 10, b = 3;
+
         private void Awake()
         {
             // OperatorMath();
             // OperatorComparison();
-            OperatorLogic();
+            // OperatorLogic();
+            OperatorTernary();
         }
 
-        private float a = 10, b = 3;
-
         /// <summary>
-        /// ¼Æ¾Ç¹Bºâ¤l
+        /// æ•¸å­¸é‹ç®—å­
         /// </summary>
         private void OperatorMath()
         {
-            // ¥[¡B´î¡B­¼¡B°£¡B¾l
-            // +¡B-¡B*¡B/¡B%
-            print("¥[ªk¡G" + (a + b));     // 13
-            print("´îªk¡G" + (a - b));     // 7
-            print("­¼ªk¡G" + (a * b));     // 30
-            print("°£ªk¡G" + (a / b));     // 3.333
-            print("¾lªk¡G" + (a % b));     // 1
+            // åŠ ã€æ¸›ã€ä¹˜ã€é™¤ã€é¤˜
+            // +ã€-ã€*ã€/ã€%
+            print("åŠ æ³•ï¼š" + (a + b));     // 13
+            print("æ¸›æ³•ï¼š" + (a - b));     // 7
+            print("ä¹˜æ³•ï¼š" + (a * b));     // 30
+            print("é™¤æ³•ï¼š" + (a / b));     // 3.333
+            print("é¤˜æ³•ï¼š" + (a % b));     // 1
         }
 
         /// <summary>
-        /// ¤ñ¸û¹Bºâ¤l
+        /// æ¯”è¼ƒé‹ç®—å­
         /// </summary>
         private void OperatorComparison()
         {
-            // ¤j©ó¡B¤p©ó¡B¤j©óµ¥©ó¡B¤p©óµ¥©ó¡Bµ¥©ó¡B¤£µ¥©ó
-            // >¡B<¡B>=¡B<=¡B==¡B!=
-            // ¤ñ¸û¹Bºâ¤lªºµ²ªG¬°¥¬ªL­È¡A¬O true¡B§_ false
-            print("¤j¡@¡@©ó¡G" + (a > b));       // t
-            print("¤p¡@¡@©ó¡G" + (a < b));       // f
-            print("¤j©óµ¥©ó¡G" + (a >= b));      // t
-            print("¤p©óµ¥©ó¡G" + (a <= b));      // f
-            print("µ¥¡@¡@©ó¡G" + (a == b));      // f
-            print("¤£¡@µ¥©ó¡G" + (a != b));      // t
+            // å¤§æ–¼ã€å°æ–¼ã€å¤§æ–¼ç­‰æ–¼ã€å°æ–¼ç­‰æ–¼ã€ç­‰æ–¼ã€ä¸ç­‰æ–¼
+            // >ã€<ã€>=ã€<=ã€==ã€!=
+            // æ¯”è¼ƒé‹ç®—å­çš„çµæœç‚ºå¸ƒæ—å€¼ï¼Œæ˜¯ trueã€å¦ false
+            print("å¤§ã€€ã€€æ–¼ï¼š" + (a > b));       // t
+            print("å°ã€€ã€€æ–¼ï¼š" + (a < b));       // f
+            print("å¤§æ–¼ç­‰æ–¼ï¼š" + (a >= b));      // t
+            print("å°æ–¼ç­‰æ–¼ï¼š" + (a <= b));      // f
+            print("ç­‰ã€€ã€€æ–¼ï¼š" + (a == b));      // f
+            print("ä¸ã€€ç­‰æ–¼ï¼š" + (a != b));      // t
         }
 
         /// <summary>
-        /// ÅŞ¿è¹Bºâ¤l
+        /// é‚è¼¯é‹ç®—å­
         /// </summary>
         private void OperatorLogic()
         {
-            // ¨Ã¥B¡B©ÎªÌ¡BÄA­Ë
-            // &&¡B||¡B!
-            // ¨Ã¥B¡G¤ñ¸û¨â­Ó¥¬ªL­È
-            // ¥u­n¨ä¤¤¤@­Ó¥¬ªL­Èµ¥©ó f µ²ªG´N¬O f
+            // ä¸¦ä¸”ã€æˆ–è€…ã€é¡›å€’
+            // &&ã€||ã€!
+            // ä¸¦ä¸”ï¼šæ¯”è¼ƒå…©å€‹å¸ƒæ—å€¼
+            // åªè¦å…¶ä¸­ä¸€å€‹å¸ƒæ—å€¼ç­‰æ–¼ f çµæœå°±æ˜¯ f
             print(true && true);        // t
             print(true && false);       // f
             print(false && true);       // f
             print(false && false);      // f
 
-            // ©ÎªÌ¡G¤ñ¸û¨â­Ó¥¬ªL­È
-            // ¥u­n¨ä¤¤¤@­Ó¥¬ªL­Èµ¥©ó t µ²ªG´N¬O t
+            // æˆ–è€…ï¼šæ¯”è¼ƒå…©å€‹å¸ƒæ—å€¼
+            // åªè¦å…¶ä¸­ä¸€å€‹å¸ƒæ—å€¼ç­‰æ–¼ t çµæœå°±æ˜¯ t
             print(true || true);        // t
             print(true || false);       // t
             print(false || true);       // t
             print(false || false);      // f
 
-            // ÄA­Ë¡G±N¥¬ªL­ÈÅÜ¬Û¤Ï
+            // é¡›å€’ï¼šå°‡å¸ƒæ—å€¼è®Šç›¸å
             print(!true);               // f
             print(!false);              // t
             print(!(a > b));            // f
+        }
+
+        /// <summary>
+        /// ä¸‰å…ƒé‹ç®—å­
+        /// </summary>
+        private void OperatorTernary()
+        {
+            // èªæ³•ï¼š
+            // å¸ƒæ—å€¼ ? é‹ç®—å¼ä¸€ : é‹ç®—å¼äºŒï¼›
+            // ç•¶å¸ƒæ—å€¼ç‚º true æ™‚åŸ·è¡Œé‹ç®—å¼ä¸€
+            // ç•¶å¸ƒæ—å€¼ç‚º false æ™‚åŸ·è¡Œé‹ç®—å¼äºŒ
+            print(true ? "æˆ‘æ˜¯é‹ç®—å¼ä¸€" : "æˆ‘æ˜¯é‹ç®—å¼äºŒ");
+            print((a < b) ? "a å°æ–¼ b" : "a å¤§æ–¼ b");
         }
     }
 }
