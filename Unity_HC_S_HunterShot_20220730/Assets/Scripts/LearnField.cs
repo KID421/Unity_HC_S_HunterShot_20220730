@@ -79,5 +79,25 @@ namespace KID
             speed = 1.5f;
             isDead = true;
         }
+
+        #region 欄位屬性 Field Attritube
+        [Header("標題")]
+        public int testInt = 10;
+        [Tooltip("我是提示。")]
+        public float testFloat = 3.5f;
+
+        // 範圍：為整數與浮點數添加範圍限制
+        [Range(10, 100)]
+        public int numberTest = 99;
+        [Range(2.5f, 7.5f)]
+        public float numberFloatTest = 5.5f;
+        // Range 只能放在整數與浮點數上
+        [Range(1, 10)]
+        public bool boolTest;
+
+        // 序列化：將私人欄位顯示於屬性面板上
+        [SerializeField]
+        private string weaponName = "美工刀";
+        #endregion
     }
 }

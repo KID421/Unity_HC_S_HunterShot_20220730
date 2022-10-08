@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlSystem : MonoBehaviour
+namespace KID
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 控制系統
+    /// </summary>
+    public class ControlSystem : MonoBehaviour
     {
-        
-    }
+        #region 資料
+        [Header("基本資料")]
+        [SerializeField, Range(0, 50)]
+        private float speed = 10.5f;
+        [SerializeField, Range(0, 5000)]
+        private int speedMarble = 1500;
+        [SerializeField, Range(0, 3)]
+        private float intervalShoot = 0.5f;
+        [SerializeField]
+        private int countShootMarble = 10;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField, Header("彈珠預製物")]
+        private GameObject prefabMarble;
+
+        private string parAttack = "觸發攻擊";
+        #endregion
     }
 }
