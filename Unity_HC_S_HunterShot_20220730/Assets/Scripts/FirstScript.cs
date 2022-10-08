@@ -1,45 +1,45 @@
-// ������
-using UnityEngine;  // �ޥ� Unity �C�������R�W�Ŷ��G�ܮw��θ�ƻP�\��
+﻿// 單行註解
+using UnityEngine;  // 引用 Unity 遊戲引擎命名空間：倉庫實用資料與功能
 
-// �}�� = ���O
+// 腳本 = 類別
 /*
- * �h�����
- * �h�����
+ * 多行註解
+ * 多行註解
  */
 
 namespace KID
 {
-    // Unity ���O�n���楲����b�C������W
+    // Unity 類別要執行必須放在遊戲物件上
     /// <summary>
-    /// �K�n�G���U�����åB�|�X�{�b�sĶ�����ܤW
-    /// First Script �Ĥ@�Ӹ}���ǲ� C# ��¦�P Unity
+    /// 摘要：輔助說明並且會出現在編譯器提示上
+    /// First Script 第一個腳本學習 C# 基礎與 Unity
     /// </summary>
     public class FirstScript : MonoBehaviour
     {
-        #region ��ưϰ�
-        // ���
-        // ���
-        // ���
+        #region 資料區域
+        // 資料
+        // 資料
+        // 資料
         #endregion
 
-        #region �ƥ�ϰ�GUnity �J�f
+        #region 事件區域：Unity 入口
         /// <summary>
-        /// ����ƥ�G�C���}�l�ɨåB�b Start �e����@��
+        /// 喚醒事件：遊戲開始時並且在 Start 前執行一次
         /// </summary>
         private void Awake()
         {
-            print("���o�A�U�w :D");
+            print("哈囉，沃德 :D");
         }
 
         /// <summary>
-        /// �}�l�ƥ�G�C���}�l�ɨåB�b Awake �����@��
+        /// 開始事件：遊戲開始時並且在 Awake 後執行一次
         /// </summary>
         private void Start()
         {
-            print("�}�l�ƥ�I");
+            print("開始事件！");
             // Rich Text
-            print("<color=yellow>�����r</color>");
-            print("<color=#006699>�ź��</color>");
+            print("<color=yellow>黃色文字</color>");
+            print("<color=#006699>藍綠色</color>");
         }
         #endregion
     }

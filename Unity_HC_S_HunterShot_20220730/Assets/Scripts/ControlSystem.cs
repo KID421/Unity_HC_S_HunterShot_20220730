@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ±±¨î¨t²Î
+    /// æ§åˆ¶ç³»çµ±
     /// </summary>
     public class ControlSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [Header("°ò¥»¸ê®Æ")]
+        #region è³‡æ–™
+        [Header("åŸºæœ¬è³‡æ–™")]
         [SerializeField, Range(0, 50)]
         private float speed = 10.5f;
         [SerializeField, Range(0, 5000)]
@@ -18,10 +18,10 @@ namespace KID
         [SerializeField]
         private int countShootMarble = 10;
 
-        [SerializeField, Header("¼u¯]¹w»sª«")]
+        [SerializeField, Header("å½ˆç é è£½ç‰©")]
         private GameObject prefabMarble;
 
-        private string parAttack = "Ä²µo§ğÀ»";
+        private string parAttack = "è§¸ç™¼æ”»æ“Š";
         #endregion
     }
 }
