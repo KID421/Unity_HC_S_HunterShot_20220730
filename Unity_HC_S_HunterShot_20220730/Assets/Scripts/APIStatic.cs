@@ -1,52 +1,72 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// »{ÃÑ ÀRºA Static API
+    /// èªè­˜ éœæ…‹ Static API
     /// </summary>
     public class APIStatic : MonoBehaviour
     {
         private void Awake()
         {
-            // ÀRºA API
-            // 1. ÀRºAÄİ©Ê Static Properties
+            #region èªè­˜ éœæ…‹ API
+            // éœæ…‹ API
+            // 1. éœæ…‹å±¬æ€§ Static Properties
 
-            // 1-1 ¨ú±o Get
-            // »yªk¡G
-            // Ãş§O¦WºÙ.ÀRºAÄİ©Ê
+            // 1-1 å–å¾— Get
+            // èªæ³•ï¼š
+            // é¡åˆ¥åç¨±.éœæ…‹å±¬æ€§
+
+            print("éš¨æ©Ÿå€¼ï¼š" + Random.value);
+
+            print("æ‡‰ç”¨ç¨‹å¼æ˜¯å¦åŸ·è¡Œä¸­ï¼š" + Application.isPlaying);
+
+            // 1-2 å­˜æ”¾ Set
+            // èªæ³•ï¼š
+            // é¡åˆ¥åç¨±.éœæ…‹å±¬æ€§ æŒ‡å®š å€¼ï¼›
+
+            // Application.isPlaying = false; // Read Only å”¯è®€å±¬æ€§ï¼šä¸èƒ½å­˜æ”¾
             
-            print("ÀH¾÷­È¡G" + Random.value);
-
-            print("À³¥Îµ{¦¡¬O§_°õ¦æ¤¤¡G" + Application.isPlaying);
-
-            // 1-2 ¦s©ñ Set
-            // »yªk¡G
-            // Ãş§O¦WºÙ.ÀRºAÄİ©Ê «ü©w ­È¡F
-
-            // Application.isPlaying = false; // Read Only °ßÅªÄİ©Ê¡G¤£¯à¦s©ñ
-            
-            // À³¥Îµ{¦¡.¬O§_¦b­I´º¹B¦æ = ¥¬ªL­È¡F
+            // æ‡‰ç”¨ç¨‹å¼.æ˜¯å¦åœ¨èƒŒæ™¯é‹è¡Œ = å¸ƒæ—å€¼ï¼›
             Application.runInBackground = false;
-            // ·Æ¹««ü¼Ğ.¥iµø©Ê = ¯à§_¬İ¨£¡F
+            // æ»‘é¼ æŒ‡æ¨™.å¯è¦–æ€§ = èƒ½å¦çœ‹è¦‹ï¼›
             Cursor.visible = false;
 
-            // 2. ÀRºA¤èªk Static Methods
-            // »yªk¡G
-            // Ãş§O¦WºÙ.ÀRºA¤èªk(¹ïÀ³¤Ş¼Æ)¡F
+            // 2. éœæ…‹æ–¹æ³• Static Methods
+            // èªæ³•ï¼š
+            // é¡åˆ¥åç¨±.éœæ…‹æ–¹æ³•(å°æ‡‰å¼•æ•¸)ï¼›
 
-            // ÀH¾÷.½d³ò(³Ì¤p­È¡A³Ì¤j­È)
+            // éš¨æ©Ÿ.ç¯„åœ(æœ€å°å€¼ï¼Œæœ€å¤§å€¼)
             float range =  Random.Range(3.5f, 9.9f);
-            print("ÀH¾÷½d³ò¤¶©ó 3.5 ~ 9.9¡G" + range);
+            print("éš¨æ©Ÿç¯„åœä»‹æ–¼ 3.5 ~ 9.9ï¼š" + range);
 
-            // ¼Æ¾Ç.µ´¹ï­È(¼Æ­È)
+            // æ•¸å­¸.çµ•å°å€¼(æ•¸å€¼)
             float abs = Mathf.Abs(-99.5f);
-            print("-99.5 µ´¹ï­Èµ²ªG¡G" + abs);
+            print("-99.5 çµ•å°å€¼çµæœï¼š" + abs);
+            #endregion
+
+            print("æ‰€æœ‰æ”å½±æ©Ÿæ•¸é‡ï¼š" + Camera.allCamerasCount);
+            print("åœ“å‘¨ç‡ï¼š" + Mathf.PI);
+
+            // ç‰©ç†.åœ°å¿ƒå¼•åŠ› = ä¸‰ç¶­å‘é‡ï¼›
+            Physics.gravity = new Vector3(0, 10, 0);
+            // æ™‚é–“.å°ºå¯¸ = æ™‚é–“å°ºå¯¸å€¼ï¼›(é è¨­ç‚º 1)
+            Time.timeScale = 5;
+            // è¢å¹•.äº®åº¦ = å€¼ (0 ~ 1)
+            Screen.brightness = 0.3f;
+
+            // æ•¸å­¸.ç„¡æ¢ä»¶æ¨å»å°æ•¸é»(æ•¸å€¼)
+            print("9.99 ç„¡æ¢ä»¶æ¨å»ï¼š" + Mathf.Floor(9.99f));
+            // æ‡‰ç”¨ç¨‹å¼.é–‹å•Ÿé€£çµ("ç¶²å€");
+            Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley");
         }
 
         private void Update()
         {
-            
+            // print("ç¶“éæ™‚é–“ï¼š" + Time.time);
+
+            // è¼¸å…¥.æŒ‰ä¸‹æŒ‰éµ(æŒ‰éµ)
+            print("æ˜¯å¦æŒ‰ç©ºç™½éµï¼š" + Input.GetKeyDown(KeyCode.Space));
         }
     }
 }
