@@ -1,12 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß°j°é¡G¤Ï´_»y¥y
+    /// å­¸ç¿’è¿´åœˆï¼šåå¾©èªå¥
     /// 1. while
     /// 2. for
-    /// 3. °}¦C Array
+    /// 3. é™£åˆ— Array
     /// </summary>
     public class LearnLoop : MonoBehaviour
     {
@@ -18,47 +18,57 @@ namespace KID
 
         [SerializeField]
         private int[] numbers;
+        [SerializeField]
+        private string[] props = { "ç´…è‰²è—¥æ°´", "è—è‰²è—¥æ°´", "é»ƒè‰²è—¥æ°´" };
 
         private void Awake()
         {
             WhileBase();
             ForBase();
 
-            // ¨ú±o°}¦C¸ê®Æ Get
-            print("²Ä¤G­Ó¼Æ¦rªº­È¡G" + numbers[1]);
+            // å–å¾—é™£åˆ—è³‡æ–™ Get
+            print("ç¬¬äºŒå€‹æ•¸å­—çš„å€¼ï¼š" + numbers[1]);
 
-            // ¦s©ñ°}¦C¸ê®Æ Set
+            // å­˜æ”¾é™£åˆ—è³‡æ–™ Set
             numbers[2] = 99;
+
+            // é™£åˆ—æ•¸é‡
+            print("é“å…·é™£åˆ—çš„æ•¸é‡ï¼š" + props.Length);
         }
 
         /// <summary>
-        /// while °j°é°òÂ¦
+        /// while è¿´åœˆåŸºç¤
         /// </summary>
         private void WhileBase()
         {
-            // ·í¥¬ªL­È¬° true ®É°õ¦æ¤@¦¸
+            // ç•¶å¸ƒæ—å€¼ç‚º true æ™‚åŸ·è¡Œä¸€æ¬¡
             if (true)
             {
 
             }
 
-            // ·í¥¬ªL­È¬° true ®É«ùÄò°õ¦æ
+            // ç•¶å¸ƒæ—å€¼ç‚º true æ™‚æŒçºŒåŸ·è¡Œ
             while (countWhile < 5)
             {
-                print("while °j°é°õ¦æ¦¸¼Æ¡G" + countWhile);
+                print("while è¿´åœˆåŸ·è¡Œæ¬¡æ•¸ï¼š" + countWhile);
                 // countWhile = countWhile + 1;
                 countWhile++;
             }
         }
 
         /// <summary>
-        /// for °j°é°òÂ¦
+        /// for è¿´åœˆåŸºç¤
         /// </summary>
         private void ForBase()
         {
             for (int x = 0; x < 5; x++)
             {
-                print("<color=yellow>for °j°é°õ¦æ¦¸¼Æ¡G" + x + "</color>");
+                print("<color=yellow>for è¿´åœˆåŸ·è¡Œæ¬¡æ•¸ï¼š" + x + "</color>");
+            }
+
+            for (int i = 0; i < props.Length; i++)
+            {
+                print("é“å…·è³‡æ–™ï¼š" + props[i]);
             }
         }
     }
