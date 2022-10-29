@@ -23,6 +23,8 @@ namespace KID
         private GameObject prefabMarble;
         [SerializeField, Header("彈珠生成點")]
         private Transform pointSpawn;
+        [SerializeField, Header("箭頭")]
+        private GameObject goArrow;
 
         private string parAttack = "觸發攻擊";
         private Animator ani;
