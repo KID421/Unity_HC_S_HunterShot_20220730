@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace KID
 {
@@ -24,7 +25,17 @@ namespace KID
         private Transform pointSpawn;
 
         private string parAttack = "觸發攻擊";
+        private Animator ani;
         #endregion
+
+        private void Awake()
+        {
+            // 取得元件<泛型>()
+            // 動畫 = 取得元件<動畫>()
+            ani = GetComponent<Animator>();
+
+            StartCoroutine(SpawnMarble(countShootMarble));
+        }
 
         #region 方法
         /// <summary>
@@ -47,9 +58,18 @@ namespace KID
         /// 生成彈珠
         /// </summary>
         /// <param name="countToSpawn">要生成的彈珠數量</param>
-        private void SpawnMarble(int countToSpawn)
+        private IEnumerator SpawnMarble(int countToSpawn)
         {
+            // Object.Instantiate();    // 第一種寫法，Static
+            // Instantiate();           // 第二種寫法，繼承類別
 
+            for (int i = 0; i < countToSpawn; i++)
+            {
+                // 生成(物件，座標，角度)
+                Instantiate(prefabMarble, pointSpawn.position, pointSpawn.rotation);
+                ani.SetTrigger(parAttack);
+                yield return new WaitForSeconds(intervalShoot);
+            }
         }
         #endregion
     }
