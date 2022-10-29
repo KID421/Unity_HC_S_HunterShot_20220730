@@ -5007,6 +5007,7 @@ MonoBehaviour:
   intervalShoot: 0.5
   countShootMarble: 10
   prefabMarble: {fileID: 8887990535299003720, guid: c80b975bdb869f742be34a19448b59fe, type: 3}
+  pointSpawn: {fileID: 1863582053}
 --- !u!4 &697560657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1464421162658374322, guid: 5de3fd30d7ddd61439a295a3529cea48, type: 3}
@@ -7022,6 +7023,13 @@ MonoBehaviour:
   traPlayer: {fileID: 697560657}
   camMain: {fileID: 1735943659}
   traBat: {fileID: 389054121}
+  cube: {fileID: 1563399537}
+  aud: {fileID: 651898830}
+  canvas: {fileID: 608226411}
+  rigSphere: {fileID: 1994304326}
+  traCube: {fileID: 1563399540}
+  traSphere: {fileID: 1994304330}
+  traCapsule: {fileID: 886412974}
 --- !u!4 &1010053380
 Transform:
   m_ObjectHideFlags: 0
@@ -18197,6 +18205,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6577486879142847849, guid: be7caffdd0c785d4e8a8d52041fec391, type: 3}
   m_PrefabInstance: {fileID: 1860669274}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1863582052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863582053}
+  m_Layer: 0
+  m_Name: "\u5F48\u73E0\u751F\u6210\u9EDE"
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1863582053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863582052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 697560657}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1880612862
 PrefabInstance:
   m_ObjectHideFlags: 0

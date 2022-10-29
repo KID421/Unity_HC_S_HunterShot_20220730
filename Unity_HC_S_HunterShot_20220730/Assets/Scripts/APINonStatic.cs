@@ -1,29 +1,29 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß«DÀRºA API
+    /// å­¸ç¿’ééœæ…‹ API
     /// Properties
     /// Public Methods
     /// </summary>
     public class APINonStatic : MonoBehaviour
     {
-        // ÀRºA¡Gstatic ¦s¦b°O¾ĞÅé¤º¡A¸ò¹CÀ¸ª«¥ó¨S¦³Ãö«Y
-        // Time¡BRandom
+        // éœæ…‹ï¼šstatic å­˜åœ¨è¨˜æ†¶é«”å…§ï¼Œè·ŸéŠæˆ²ç‰©ä»¶æ²’æœ‰é—œä¿‚
+        // Timeã€Random
 
-        // «DÀRºA¡G¹w³]¤£¦s¦b°O¾ĞÅé¤º¡A¸ò¹CÀ¸ª«¥ó¦³Ãö«Y
+        // ééœæ…‹ï¼šé è¨­ä¸å­˜åœ¨è¨˜æ†¶é«”å…§ï¼Œè·ŸéŠæˆ²ç‰©ä»¶æœ‰é—œä¿‚
         // Transform
 
-        // 1. «DÀRºAÄİ©Ê Properties
+        // 1. ééœæ…‹å±¬æ€§ Properties
 
-        // 1-1 ¨ú±o Get
-        // »yªk¡G
-        // ¨BÆJ¤@¡G©w¸qÄæ¦ìÀx¦s¹CÀ¸ª«¥ó
-        // Äæ¦ì¦WºÙ.«DÀRºAÄİ©Ê
+        // 1-1 å–å¾— Get
+        // èªæ³•ï¼š
+        // æ­¥é©Ÿä¸€ï¼šå®šç¾©æ¬„ä½å„²å­˜éŠæˆ²ç‰©ä»¶
+        // æ¬„ä½åç¨±.ééœæ…‹å±¬æ€§
 
-        // ¨BÆJ¤G¡G½T©w¸Óª«¥ó¦³¦¹¤¸¥ó
-        // ¨Ò¦p¡G¿O¥ú Light
+        // æ­¥é©ŸäºŒï¼šç¢ºå®šè©²ç‰©ä»¶æœ‰æ­¤å…ƒä»¶
+        // ä¾‹å¦‚ï¼šç‡ˆå…‰ Light
 
         public Transform traA;
         public Light lightA;
@@ -33,31 +33,58 @@ namespace KID
 
         public Transform traBat;
 
-        // 1-2 ³]©w Set
-        // »yªk¡G
-        // Äæ¦ì¦WºÙ.«DÀRºAÄİ©Ê «ü©w ­È¡F
+        // 1-2 è¨­å®š Set
+        // èªæ³•ï¼š
+        // æ¬„ä½åç¨±.ééœæ…‹å±¬æ€§ æŒ‡å®š å€¼ï¼›
 
-        // 2. «DÀRºA¤èªk Pulic Methods
-        // »yªk¡G
-        // Äæ¦ì¦WºÙ.«DÀRºA¤èªk(¹ïÀ³ªº¤Ş¼Æ)¡F
+        // 2. ééœæ…‹æ–¹æ³• Pulic Methods
+        // èªæ³•ï¼š
+        // æ¬„ä½åç¨±.ééœæ…‹æ–¹æ³•(å°æ‡‰çš„å¼•æ•¸)ï¼›
 
         private void Awake()
         {
-            print("®y¼Ğ¡G" + traA.position);
-            print("¿O¥úÃC¦â¡G" + lightA.color);
+            print("åº§æ¨™ï¼š" + traA.position);
+            print("ç‡ˆå…‰é¡è‰²ï¼š" + lightA.color);
 
-            // °ßÅªÄİ©Ê¤£¯à³]©w
+            // å”¯è®€å±¬æ€§ä¸èƒ½è¨­å®š
             // traPlayer.lossyScale = Vector3.one * 10;
 
             traPlayer.localScale = Vector3.one * 10;
 
             camMain.depth = 7;
-            print("Äá¼v¾÷²`«×¡G" + camMain.depth);
+            print("æ”å½±æ©Ÿæ·±åº¦ï¼š" + camMain.depth);
+        }
+
+        public BoxCollider cube;
+        public AudioSource aud;
+        public Canvas canvas;
+
+        public Rigidbody rigSphere;
+
+        public Transform traCube;
+        public Transform traSphere;
+        public Transform traCapsule;
+
+        private void Start()
+        {
+            print("ç«‹æ–¹é«”ç¢°æ’å™¨çš„å°ºå¯¸ï¼š" + cube.size);
+            print("éŸ³ç·£çš„éŸ³é‡ï¼š" + aud.volume);
+            print("ç•«å¸ƒçš„æ¸²æŸ“æ¨¡å¼ï¼š" + canvas.renderMode);
+
+            cube.center = new Vector3(1, 3, 1);
+            aud.volume = 0.5f;
+            canvas.renderMode = RenderMode.WorldSpace;
+
+            rigSphere.AddForce(0, 1500, 0);
         }
 
         private void Update()
         {
             traBat.Rotate(0, 30, 0);
+
+            traCube.LookAt(traSphere);
+
+            traCapsule.Translate(0, 0, 3);
         }
     }
 }

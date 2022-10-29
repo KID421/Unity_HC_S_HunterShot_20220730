@@ -20,6 +20,8 @@ namespace KID
 
         [SerializeField, Header("彈珠預製物")]
         private GameObject prefabMarble;
+        [SerializeField, Header("彈珠生成點")]
+        private Transform pointSpawn;
 
         private string parAttack = "觸發攻擊";
         #endregion
