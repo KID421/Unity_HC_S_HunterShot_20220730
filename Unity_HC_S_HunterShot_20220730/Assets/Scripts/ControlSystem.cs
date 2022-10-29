@@ -28,16 +28,24 @@ namespace KID
 
         private string parAttack = "觸發攻擊";
         private Animator ani;
+        private bool isShooted;
         #endregion
 
+        #region 事件
         private void Awake()
         {
+            Screen.SetResolution(720, 1280, false);
+
             // 取得元件<泛型>()
             // 動畫 = 取得元件<動畫>()
             ani = GetComponent<Animator>();
-
-            StartCoroutine(SpawnMarble(countShootMarble));
         }
+
+        private void Update()
+        {
+            ShootMarble();
+        }
+        #endregion
 
         #region 方法
         /// <summary>
@@ -53,7 +61,19 @@ namespace KID
         /// </summary>
         private void ShootMarble()
         {
+            if (isShooted) return;                              // 如果 已經發射過 就 跳出
 
+            // Mouse0 可以抓到 PC 的滑鼠左鍵以及 Mobile 的觸控
+            if (Input.GetKeyDown(KeyCode.Mouse0))               // 如果 按下 滑鼠左鍵
+            {
+                goArrow.SetActive(true);                        // 箭頭.顯示
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0))            // 如果 放開 滑鼠左鍵
+            {
+                goArrow.SetActive(false);                       // 箭頭.隱藏
+                isShooted = true;                               // 已經發射過彈珠
+                StartCoroutine(SpawnMarble(countShootMarble));  // 生成彈珠
+            }
         }
 
         /// <summary>

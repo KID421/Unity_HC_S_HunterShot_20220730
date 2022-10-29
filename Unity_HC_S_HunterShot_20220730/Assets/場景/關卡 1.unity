@@ -5005,7 +5005,7 @@ MonoBehaviour:
   speed: 10.5
   speedMarble: 1500
   intervalShoot: 0.5
-  countShootMarble: 100
+  countShootMarble: 10
   prefabMarble: {fileID: 8887990535299003720, guid: c80b975bdb869f742be34a19448b59fe, type: 3}
   pointSpawn: {fileID: 1863582053}
   goArrow: {fileID: 1806459322}
@@ -17697,7 +17697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806459322}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
