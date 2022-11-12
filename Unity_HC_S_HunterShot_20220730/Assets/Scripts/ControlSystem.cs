@@ -26,6 +26,11 @@ namespace KID
         [SerializeField, Header("箭頭")]
         private GameObject goArrow;
 
+        [SerializeField, Header("地板圖層")]
+        private LayerMask layerGround;
+        [SerializeField, Header("射線碰撞點的物件")]
+        private Transform traTarget;
+
         private string parAttack = "觸發攻擊";
         private Animator ani;
         private bool isShooted;
@@ -44,6 +49,7 @@ namespace KID
         private void Update()
         {
             ShootMarble();
+            TurnCharacter();
         }
         #endregion
 
@@ -53,7 +59,34 @@ namespace KID
         /// </summary>
         private void TurnCharacter()
         {
+            if (isShooted) return;
 
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                Vector3 posMouse = Input.mousePosition;
+
+                // print("<color=yellow>滑鼠座標：" + posMouse + "</color>");
+
+                // Camera main = Camera.main;
+                // main.ScreenPointToRay(posMouse);
+
+                // 射線 = 主要攝影機.螢幕座標轉為射線(滑鼠座標)
+                Ray ray = Camera.main.ScreenPointToRay(posMouse);
+
+                RaycastHit hit;
+
+                // 物理.射線碰撞(射線，距離，圖層)
+                // print(Physics.Raycast(ray, 100, layerGround));
+
+                if (Physics.Raycast(ray, out hit, 100, layerGround))
+                {
+                    print("射線碰到的物件座標：" + hit.point);
+
+                    traTarget.position = hit.point;
+
+                    transform.LookAt(traTarget);
+                }
+            }
         }
 
         /// <summary>
@@ -87,8 +120,22 @@ namespace KID
 
             for (int i = 0; i < countToSpawn; i++)
             {
-                // 生成(物件，座標，角度)
-                Instantiate(prefabMarble, pointSpawn.position, pointSpawn.rotation);
+                // 生成的彈珠 = 生成(物件，座標，角度)
+                GameObject tempMarble = Instantiate(prefabMarble, pointSpawn.position, pointSpawn.rotation);
+                // 生成的彈珠.取得元件<剛體>().添加推力(三維向量)
+
+                // 依造世界座標的 Z 軸發射
+                // tempMarble.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, speedMarble));
+
+                // transform 此物件的變形元件
+                // 下方三個為 Vector3
+                // 前方 transform.forward 此物件的 Z 軸
+                // 右方 transform.right 此物件的 X 軸
+                // 上方 transform.up 此物件的 y 軸
+
+                // 依造角色的 Z 軸發射
+                tempMarble.GetComponent<Rigidbody>().AddForce(transform.forward * speedMarble);
+
                 ani.SetTrigger(parAttack);
                 yield return new WaitForSeconds(intervalShoot);
             }
