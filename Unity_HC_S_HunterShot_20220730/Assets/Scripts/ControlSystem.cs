@@ -80,10 +80,9 @@ namespace KID
 
                 if (Physics.Raycast(ray, out hit, 100, layerGround))
                 {
-                    print("射線碰到的物件座標：" + hit.point);
+                    // print("射線碰到的物件座標：" + hit.point);
 
                     traTarget.position = hit.point;
-
                     transform.LookAt(traTarget);
                 }
             }
