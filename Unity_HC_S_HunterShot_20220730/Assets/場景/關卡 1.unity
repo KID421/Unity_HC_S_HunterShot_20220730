@@ -10053,6 +10053,7 @@ MonoBehaviour:
   minEnemy: 2
   maxEnemy: 5
   listSpawnPoints: []
+  prefabMarble: {fileID: 619697240456987923, guid: c7f244f8b252bf440a018874225520e0, type: 3}
 --- !u!1 &1409729587
 GameObject:
   m_ObjectHideFlags: 0
@@ -16985,7 +16986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702128222}
   m_Layer: 0
-  m_Name: "---------- \u4ECB\u3000\u3000\u9762 ---------"
+  m_Name: "---------- \u4ECB\u3000\u3000\u9762 ----------"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

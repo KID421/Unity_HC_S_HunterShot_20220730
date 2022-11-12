@@ -30,6 +30,9 @@ namespace KID
         }
         #endregion
 
+        [SerializeField, Header("彈珠格子")]
+        private GameObject prefabMarble;
+
         #region 方法
         /// <summary>
         /// 生成敵人
@@ -55,9 +58,20 @@ namespace KID
 
             for (int i = 0; i < randomCount; i++)
             {
-                int randomEnemy = Random.Range(0, prefabEnemys.Length);
+                // 取得清單內第二排格子的座標
                 Vector3 pos = listSpawnPoints[i].position;
-                Instantiate(prefabEnemys[randomEnemy], pos, Quaternion.identity);
+
+                if (i == 0)
+                {
+                    Instantiate(prefabMarble, pos, Quaternion.identity);
+                }
+                else
+                {
+                    // 隨機怪物
+                    int randomEnemy = Random.Range(0, prefabEnemys.Length);
+                    // 生成怪物(怪物，座標，零度角)
+                    Instantiate(prefabEnemys[randomEnemy], pos, Quaternion.identity);
+                }
             }
         }
         #endregion
