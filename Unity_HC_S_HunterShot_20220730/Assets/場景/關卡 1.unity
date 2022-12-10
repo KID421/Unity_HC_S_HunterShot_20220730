@@ -5013,6 +5013,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1464421162658374322, guid: 5de3fd30d7ddd61439a295a3529cea48, type: 3}
   m_PrefabInstance: {fileID: 7840738584812602992}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &697560659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697560654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f402782a1039b43b8157c75ee9159e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAttack: 100
+  baseCritProbability: 0.5
 --- !u!1001 &702777357
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52fb2407942e114092a3f312b345f13, type: 3}
   m_Name: "\u5154\u5B50"
   m_EditorClassIdentifier: 
+  hp: 500
+  attack: 50
+  prefabCoin: {fileID: 7592006469079086962, guid: 2492785c815833f4aa947a4f26f6edd5, type: 3}
+  coinCount: 30
+  coinProbability: 0.8

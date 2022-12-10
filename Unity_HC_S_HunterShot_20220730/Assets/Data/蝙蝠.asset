@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52fb2407942e114092a3f312b345f13, type: 3}
+  m_Name: "\u8759\u8760"
+  m_EditorClassIdentifier: 
+  hp: 250
+  attack: 70
+  prefabCoin: {fileID: 7592006469079086962, guid: 2492785c815833f4aa947a4f26f6edd5, type: 3}
+  coinCount: 50
+  coinProbability: 0.5
