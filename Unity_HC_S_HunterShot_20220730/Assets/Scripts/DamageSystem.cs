@@ -23,6 +23,10 @@ namespace KID
         private Image imgHp;
         [SerializeField, Header("文字血量")]
         private TextMeshProUGUI textHp;
+        [SerializeField, Header("碰撞器")]
+        private BoxCollider boxCollider;
+        [SerializeField, Header("怪物模型")]
+        private GameObject modelEnemy;
 
         private float hp;
         private float hpMax;
@@ -105,9 +109,38 @@ namespace KID
         private void Dead()
         {
             hp = 0;
-            // 刪除(物件)；
+
+            boxCollider.enabled = false;        // 關閉怪物格子的碰撞器
+            modelEnemy.SetActive(false);        // 隱藏怪物的模型
+
+            // 刪除(物件，延遲時間)；
             // gameObject 此遊戲物件
-            Destroy(gameObject);
+            Destroy(gameObject, 2.5f);
+            DropCoin();
+        }
+
+        /// <summary>
+        /// 掉落金幣
+        /// </summary>
+        private void DropCoin()
+        {
+            float random = Random.value;
+            print($"金幣本次機率：{random}");
+
+            if (random <= dataEnemy.coinProbability)
+            {
+                for (int i = 0; i < dataEnemy.coinCount; i++)
+                {
+                    GameObject tempCoin = Instantiate(
+                        dataEnemy.prefabCoin,
+                        transform.position + Vector3.up * 2,
+                        Quaternion.Euler(90, 0, 0));
+
+                    float randomX = Random.Range(-150, 150);
+                    float randomZ = Random.Range(-150, 250);
+                    tempCoin.GetComponent<Rigidbody>().AddForce(new Vector3(randomX, 300, randomZ));
+                }
+            }
         }
 
         /// <summary>

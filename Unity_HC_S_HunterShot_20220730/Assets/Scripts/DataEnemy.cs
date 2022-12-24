@@ -14,9 +14,9 @@ namespace KID
     public class DataEnemy : ScriptableObject
     {
         [Header("基本屬性")]
-        [Range(1, 5000)]
+        [Range(1, 50000)]
         public float hp;
-        [Range(1, 5000)]
+        [Range(1, 50000)]
         public float attack;
         [Space(20)]
         [Header("金幣資料")]

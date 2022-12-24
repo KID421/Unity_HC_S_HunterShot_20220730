@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7592006469079086968}
   - component: {fileID: 7592006469079086969}
   - component: {fileID: 7592006469079086974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u91D1\u5E63"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 7592006469079086962}
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 0.4, y: 1.65, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,4 +127,4 @@ ConstantForce:
   m_Force: {x: 0, y: 0, z: 0}
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 30}
+  m_RelativeTorque: {x: 0, y: 0, z: -30}
