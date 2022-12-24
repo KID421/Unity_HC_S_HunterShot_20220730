@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 namespace KID
 {
@@ -9,17 +10,35 @@ namespace KID
     /// </summary>
     public class DamageSystem : MonoBehaviour
     {
+        #region 資料
         [SerializeField, Header("畫布傷害值")]
         private GameObject prefabDamage;
         [SerializeField, Header("傷害值位移")]
         private Vector3 offsetDamage;
+        [SerializeField, Header("資料")]
+        private DataEnemy dataEnemy;
+        [SerializeField, Header("動畫控制器")]
+        private Animator ani;
+        [SerializeField, Header("血條")]
+        private Image imgHp;
+        [SerializeField, Header("文字血量")]
+        private TextMeshProUGUI textHp;
 
+        private float hp;
+        private float hpMax;
+        private string parDamage = "觸發受傷";
         private string nameMarble = "彈珠";
         private TextMeshProUGUI textDamage;
         private PlayerData playerData;
+        #endregion
 
+        #region 事件
         private void Awake()
         {
+            hp = dataEnemy.hp;
+            hpMax = hp;
+            UpdateUI();
+
             // SpawnDamageObject();
             playerData = GameObject.Find("小藍").GetComponent<PlayerData>();
         }
@@ -46,7 +65,8 @@ namespace KID
         private void OnCollisionStay(Collision collision)
         {
 
-        }
+        } 
+        #endregion
 
         /// <summary>
         /// 生成傷害值物件
@@ -59,9 +79,44 @@ namespace KID
                 Quaternion.Euler(50, 0, 0));
 
             textDamage = tempDamage.transform.Find("文字傷害值").GetComponent<TextMeshProUGUI>();
-            textDamage.text = "-" + playerData.attack;
+            float attack = playerData.attack;
+            textDamage.text = "-" + attack;
+            Damage(attack);
 
             StartCoroutine(AnimationEffect(tempDamage));
+        }
+
+        /// <summary>
+        /// 受傷
+        /// </summary>
+        /// <param name="attack">接收到的攻擊力</param>
+        private void Damage(float attack)
+        {
+            hp -= attack;
+            ani.SetTrigger(parDamage);
+            UpdateUI();
+
+            if (hp <= 0) Dead();
+        }
+
+        /// <summary>
+        /// 死亡
+        /// </summary>
+        private void Dead()
+        {
+            hp = 0;
+            // 刪除(物件)；
+            // gameObject 此遊戲物件
+            Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// 更新介面
+        /// </summary>
+        private void UpdateUI()
+        {
+            textHp.text = hp.ToString();
+            imgHp.fillAmount = hp / hpMax;
         }
 
         /// <summary>
