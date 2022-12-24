@@ -134,10 +134,10 @@ namespace KID
                     GameObject tempCoin = Instantiate(
                         dataEnemy.prefabCoin,
                         transform.position + Vector3.up * 2,
-                        Quaternion.Euler(90, 0, 0));
+                        Quaternion.Euler(90, 0, Random.Range(-10, 10)));
 
                     float randomX = Random.Range(-150, 150);
-                    float randomZ = Random.Range(-150, 250);
+                    float randomZ = Random.Range(-150, 150);
                     tempCoin.GetComponent<Rigidbody>().AddForce(new Vector3(randomX, 300, randomZ));
                 }
             }

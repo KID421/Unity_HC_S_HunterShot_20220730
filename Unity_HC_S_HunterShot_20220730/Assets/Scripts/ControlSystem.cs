@@ -34,6 +34,11 @@ namespace KID
         private string parAttack = "觸發攻擊";
         private Animator ani;
         private bool isShooted;
+
+        /// <summary>
+        /// 本回合要添加的彈珠數量
+        /// </summary>
+        public int addMarbleThisTurn;
         #endregion
 
         #region 事件
