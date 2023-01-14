@@ -9624,12 +9624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b696be1e10b3743abfc123acdf0aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countFloorMax: 2
   onEnemyTurn:
     m_PersistentCalls:
       m_Calls: []
   timeToSpawnNextEnemy: 1.2
   timeToPlayerTurn: 0.8
+  countFloorMax: 2
   turn: 0
 --- !u!65 &1289367779
 BoxCollider:
