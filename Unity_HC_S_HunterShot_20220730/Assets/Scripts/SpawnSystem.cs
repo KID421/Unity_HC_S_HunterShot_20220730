@@ -37,7 +37,7 @@ namespace KID
         /// <summary>
         /// 生成敵人
         /// </summary>
-        private void SpawnEnemy()
+        public void SpawnEnemy()
         {
             int randomCount = Random.Range(minEnemy, maxEnemy + 1);
             print("<color=#3366aa>敵人隨機數量：" + randomCount + "</color>");

@@ -16,8 +16,8 @@ namespace KID
         private int speedMarble = 1500;
         [SerializeField, Range(0, 3)]
         private float intervalShoot = 0.5f;
-        [SerializeField]
-        private int countShootMarble = 10;
+        
+        public int countShootMarble = 10;
 
         [SerializeField, Header("彈珠預製物")]
         private GameObject prefabMarble;
@@ -33,8 +33,11 @@ namespace KID
 
         private string parAttack = "觸發攻擊";
         private Animator ani;
-        private bool isShooted;
 
+        /// <summary>
+        /// 是否已經發射過
+        /// </summary>
+        public bool isShooted;
         /// <summary>
         /// 本回合要添加的彈珠數量
         /// </summary>

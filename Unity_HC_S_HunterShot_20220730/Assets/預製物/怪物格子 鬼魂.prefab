@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3638980687506544689}
   - component: {fileID: 3638980687506544690}
   - component: {fileID: -1601705791343279001}
+  - component: {fileID: 8726355381414311411}
   m_Layer: 0
   m_Name: "\u602A\u7269\u683C\u5B50 \u9B3C\u9B42"
   m_TagString: Untagged
@@ -67,6 +68,19 @@ MonoBehaviour:
   textHp: {fileID: 8034706186512961228}
   boxCollider: {fileID: 3638980687506544690}
   modelEnemy: {fileID: 3638980688246708348}
+--- !u!114 &8726355381414311411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638980687506544691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38fa7f8c559184f47bbb493241ae1aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 2
 --- !u!1001 &3638980688246611676
 PrefabInstance:
   m_ObjectHideFlags: 0
