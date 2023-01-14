@@ -44,6 +44,8 @@ namespace KID
         #region 事件
         private void Awake()
         {
+            playerData = GameObject.Find("小藍").GetComponent<PlayerData>();
+
             if (!isPlayer) hp = dataEnemy.hp;
             else if (isPlayer) hp = playerData.hp;
 
@@ -51,7 +53,6 @@ namespace KID
             UpdateUI();
 
             // SpawnDamageObject();
-            playerData = GameObject.Find("小藍").GetComponent<PlayerData>();
         }
 
         // 碰撞開始事件：兩個物件碰撞時執行一次
@@ -80,9 +81,18 @@ namespace KID
         #endregion
 
         /// <summary>
+        /// 玩家受到傷害
+        /// </summary>
+        /// <param name="damage">傷害值</param>
+        public void PlayerGetDamage(float damage = 0)
+        {
+            SpawnDamageObject(damage);
+        }
+
+        /// <summary>
         /// 生成傷害值物件
         /// </summary>
-        private void SpawnDamageObject()
+        private void SpawnDamageObject(float damage = 0)
         {
             GameObject tempDamage = Instantiate(
                 prefabDamage,
@@ -90,7 +100,11 @@ namespace KID
                 Quaternion.Euler(50, 0, 0));
 
             textDamage = tempDamage.transform.Find("文字傷害值").GetComponent<TextMeshProUGUI>();
+            
             float attack = playerData.attack;
+
+            if (isPlayer) attack = damage;
+
             textDamage.text = "-" + attack;
             Damage(attack);
 
@@ -116,6 +130,8 @@ namespace KID
         private void Dead()
         {
             hp = 0;
+
+            if (isPlayer) return;               // 如果 是 玩家就跳出
 
             boxCollider.enabled = false;        // 關閉怪物格子的碰撞器
             modelEnemy.SetActive(false);        // 隱藏怪物的模型

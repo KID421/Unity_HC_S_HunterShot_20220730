@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3287874024439044473}
   m_Layer: 0
   m_Name: "\u602A\u7269\u683C\u5B50 \u5154\u5B50"
-  m_TagString: Untagged
+  m_TagString: "\u602A\u7269"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,10 +62,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabDamage: {fileID: 5495369838310109411, guid: 3168ef7f011359e40b5807f86d14b9ab, type: 3}
   offsetDamage: {x: 0, y: 1, z: 0}
-  dataEnemy: {fileID: 11400000, guid: 4d69acbde79135f45ad64b5e4fe48598, type: 2}
   ani: {fileID: 4015111114051538848}
   imgHp: {fileID: 515915787}
   textHp: {fileID: 1626288280}
+  isPlayer: 0
+  dataEnemy: {fileID: 11400000, guid: 4d69acbde79135f45ad64b5e4fe48598, type: 2}
   boxCollider: {fileID: 4015111115370428313}
   modelEnemy: {fileID: 4015111114044128376}
 --- !u!114 &3287874024439044473
@@ -81,6 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 2
+  positionToDestoryAndHurt: 0
+  dataEnemy: {fileID: 11400000, guid: 4d69acbde79135f45ad64b5e4fe48598, type: 2}
 --- !u!1001 &1142342366082665229
 PrefabInstance:
   m_ObjectHideFlags: 0

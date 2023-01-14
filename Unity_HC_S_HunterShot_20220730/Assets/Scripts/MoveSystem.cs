@@ -11,10 +11,13 @@ namespace KID
         [SerializeField, Header("要移動的單位"), Range(0, 10)]
         private float moveDistance = 2;
         [SerializeField, Header("刪除與造成傷害的位置")]
-        private float positionToDestoryAndHurt = 0; 
+        private float positionToDestoryAndHurt = 0;
+        [SerializeField, Header("敵人資料")]
+        private DataEnemy dataEnemy;
 
         private TurnSystem turnSystem;
         private WaitForSeconds intervalMove = new WaitForSeconds(0.03f);
+        private DamageSystem damageSystemPlayer;
 
         private void Awake()
         {
@@ -22,6 +25,8 @@ namespace KID
 
             // 回合系統.敵人回合事件.添加監聽器(移動) - 切換到敵人回合時此物件會移動
             turnSystem.onEnemyTurn.AddListener(Move);
+
+            damageSystemPlayer = GameObject.Find("小藍").GetComponent<DamageSystem>();
         }
 
         /// <summary>
@@ -54,6 +59,8 @@ namespace KID
         /// </summary>
         private void MoveToEnd()
         {
+            if (dataEnemy) damageSystemPlayer.PlayerGetDamage(dataEnemy.attack);
+
             Destroy(gameObject);
         }
     }
