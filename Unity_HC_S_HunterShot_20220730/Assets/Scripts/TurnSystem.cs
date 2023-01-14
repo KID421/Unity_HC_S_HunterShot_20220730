@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 namespace KID
@@ -53,6 +54,12 @@ namespace KID
             btnReplay = GameObject.Find("重新挑戰").GetComponent<Button>();
             btnQuit = GameObject.Find("離開遊戲").GetComponent<Button>();
             groupFinal = GameObject.Find("結束畫面").GetComponent<CanvasGroup>();
+
+            // 黏巴達 => Lambda
+            // Application.Quit() 應用程式.離開()
+            btnQuit.onClick.AddListener(() => Application.Quit());
+            // SceneManager.LoadScene("場景名稱") 場景管理器.載入場景("場景名稱")
+            btnReplay.onClick.AddListener(() => SceneManager.LoadScene("關卡 1"));
         }
 
         private void OnTriggerEnter(Collider other)
@@ -110,6 +117,19 @@ namespace KID
                 Invoke("SpawnNextEnemy", timeToSpawnNextEnemy); // 延遲呼叫("方法名稱"，延遲時間)
             else
                 Invoke("PlayerTurn", timeToPlayerTurn);
+
+            FindEnemys();
+        }
+
+        /// <summary>
+        /// 尋找所有敵人
+        /// </summary>
+        private void FindEnemys()
+        {
+            // 遊戲物件.透過標籤尋找複數物件(標籤名稱) - 搜尋場景上指定標籤的物件並傳回陣列
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("怪物");
+            // 如果 層數 為 最大層數 並且 敵人數量 為 零 就挑戰成功
+            if (countFloor == countFloorMax && enemys.Length == 0) FadeInFinal("挑戰成功！");
         }
 
         /// <summary>

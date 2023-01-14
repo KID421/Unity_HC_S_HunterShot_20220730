@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u8759\u8760"
   m_EditorClassIdentifier: 
   hp: 250
-  attack: 70
+  attack: 50000
   prefabCoin: {fileID: 7592006469079086962, guid: 2492785c815833f4aa947a4f26f6edd5, type: 3}
   coinCount: 50
   coinProbability: 0.5

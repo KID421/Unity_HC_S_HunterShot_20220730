@@ -41,9 +41,14 @@ namespace KID
         private PlayerData playerData;
         #endregion
 
+        private TurnSystem turnSystem;
+        private ControlSystem controlSystem;
+
         #region 事件
         private void Awake()
         {
+            turnSystem = FindObjectOfType<TurnSystem>();
+            controlSystem = FindObjectOfType<ControlSystem>();
             playerData = GameObject.Find("小藍").GetComponent<PlayerData>();
 
             if (!isPlayer) hp = dataEnemy.hp;
@@ -51,8 +56,6 @@ namespace KID
 
             hpMax = hp;
             UpdateUI();
-
-            // SpawnDamageObject();
         }
 
         // 碰撞開始事件：兩個物件碰撞時執行一次
@@ -77,7 +80,7 @@ namespace KID
         private void OnCollisionStay(Collision collision)
         {
 
-        } 
+        }
         #endregion
 
         /// <summary>
@@ -87,6 +90,15 @@ namespace KID
         public void PlayerGetDamage(float damage = 0)
         {
             SpawnDamageObject(damage);
+        }
+
+        /// <summary>
+        /// 玩家死亡
+        /// </summary>
+        private void PlayerDead()
+        {
+            turnSystem.FadeInFinal("挑戰失敗..");
+            controlSystem.enabled = false;
         }
 
         /// <summary>
@@ -100,7 +112,7 @@ namespace KID
                 Quaternion.Euler(50, 0, 0));
 
             textDamage = tempDamage.transform.Find("文字傷害值").GetComponent<TextMeshProUGUI>();
-            
+
             float attack = playerData.attack;
 
             if (isPlayer) attack = damage;
@@ -131,7 +143,11 @@ namespace KID
         {
             hp = 0;
 
-            if (isPlayer) return;               // 如果 是 玩家就跳出
+            if (isPlayer)
+            {
+                PlayerDead();
+                return;               // 如果 是 玩家就跳出
+            }
 
             boxCollider.enabled = false;        // 關閉怪物格子的碰撞器
             modelEnemy.SetActive(false);        // 隱藏怪物的模型
@@ -182,7 +198,7 @@ namespace KID
         private IEnumerator AnimationEffect(GameObject tempDamage)
         {
             StartCoroutine(Fade(tempDamage.GetComponent<CanvasGroup>()));
-            
+
             yield return StartCoroutine(MoveDamage(tempDamage.GetComponent<RectTransform>()));
 
             yield return StartCoroutine(MoveDamage(tempDamage.GetComponent<RectTransform>(), false, 3));
