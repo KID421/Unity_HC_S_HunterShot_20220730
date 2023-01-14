@@ -82,6 +82,9 @@ namespace KID
             turn = Turn.Player;
             countRecycleMarble = 0;
             controlSystem.isShooted = false;
+
+            controlSystem.countShootMarble += controlSystem.addMarbleThisTurn;
+            controlSystem.addMarbleThisTurn = 0;
         }
     }
 }

@@ -10,6 +10,8 @@ namespace KID
     {
         [SerializeField, Header("要移動的單位"), Range(0, 10)]
         private float moveDistance = 2;
+        [SerializeField, Header("刪除與造成傷害的位置")]
+        private float positionToDestoryAndHurt = 0; 
 
         private TurnSystem turnSystem;
         private WaitForSeconds intervalMove = new WaitForSeconds(0.03f);
@@ -43,6 +45,16 @@ namespace KID
                 transform.position -= transform.forward * moveOnce;
                 yield return intervalMove;
             }
+
+            if (transform.position.z <= positionToDestoryAndHurt) MoveToEnd();
+        }
+
+        /// <summary>
+        /// 移動到終點
+        /// </summary>
+        private void MoveToEnd()
+        {
+            Destroy(gameObject);
         }
     }
 }

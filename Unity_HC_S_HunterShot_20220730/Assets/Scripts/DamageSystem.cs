@@ -15,15 +15,20 @@ namespace KID
         private GameObject prefabDamage;
         [SerializeField, Header("傷害值位移")]
         private Vector3 offsetDamage;
-        [SerializeField, Header("資料")]
-        private DataEnemy dataEnemy;
         [SerializeField, Header("動畫控制器")]
         private Animator ani;
         [SerializeField, Header("血條")]
         private Image imgHp;
         [SerializeField, Header("文字血量")]
         private TextMeshProUGUI textHp;
-        [SerializeField, Header("碰撞器")]
+
+        [SerializeField, Header("是否為玩家物件")]
+        private bool isPlayer;
+
+        [Space(20)]
+        [SerializeField, Header("怪物資料")]
+        private DataEnemy dataEnemy;
+        [SerializeField, Header("怪物碰撞器")]
         private BoxCollider boxCollider;
         [SerializeField, Header("怪物模型")]
         private GameObject modelEnemy;
@@ -39,7 +44,9 @@ namespace KID
         #region 事件
         private void Awake()
         {
-            hp = dataEnemy.hp;
+            if (!isPlayer) hp = dataEnemy.hp;
+            else if (isPlayer) hp = playerData.hp;
+
             hpMax = hp;
             UpdateUI();
 
