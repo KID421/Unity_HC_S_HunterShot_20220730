@@ -47,7 +47,7 @@ namespace KID
         #region 事件
         private void Awake()
         {
-            Screen.SetResolution(720, 1280, false);
+            Screen.SetResolution(1280, 720, false);
 
             // 取得元件<泛型>()
             // 動畫 = 取得元件<動畫>()
