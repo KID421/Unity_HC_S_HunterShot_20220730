@@ -9629,7 +9629,7 @@ MonoBehaviour:
       m_Calls: []
   timeToSpawnNextEnemy: 1.2
   timeToPlayerTurn: 0.8
-  countFloorMax: 2
+  countFloorMax: 10
   turn: 0
 --- !u!65 &1289367779
 BoxCollider:
